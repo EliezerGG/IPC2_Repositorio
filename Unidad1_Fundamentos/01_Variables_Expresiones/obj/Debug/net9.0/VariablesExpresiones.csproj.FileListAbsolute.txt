@@ -1,0 +1,14 @@
+/Users/eliezerguevara/Documents/USAC/IPC2/Ejemplo/Unidad1_Fundamentos/01_Variables_Expresiones/bin/Debug/net9.0/VariablesExpresiones
+/Users/eliezerguevara/Documents/USAC/IPC2/Ejemplo/Unidad1_Fundamentos/01_Variables_Expresiones/bin/Debug/net9.0/VariablesExpresiones.deps.json
+/Users/eliezerguevara/Documents/USAC/IPC2/Ejemplo/Unidad1_Fundamentos/01_Variables_Expresiones/bin/Debug/net9.0/VariablesExpresiones.runtimeconfig.json
+/Users/eliezerguevara/Documents/USAC/IPC2/Ejemplo/Unidad1_Fundamentos/01_Variables_Expresiones/bin/Debug/net9.0/VariablesExpresiones.dll
+/Users/eliezerguevara/Documents/USAC/IPC2/Ejemplo/Unidad1_Fundamentos/01_Variables_Expresiones/bin/Debug/net9.0/VariablesExpresiones.pdb
+/Users/eliezerguevara/Documents/USAC/IPC2/Ejemplo/Unidad1_Fundamentos/01_Variables_Expresiones/obj/Debug/net9.0/VariablesExpresiones.GeneratedMSBuildEditorConfig.editorconfig
+/Users/eliezerguevara/Documents/USAC/IPC2/Ejemplo/Unidad1_Fundamentos/01_Variables_Expresiones/obj/Debug/net9.0/VariablesExpresiones.AssemblyInfoInputs.cache
+/Users/eliezerguevara/Documents/USAC/IPC2/Ejemplo/Unidad1_Fundamentos/01_Variables_Expresiones/obj/Debug/net9.0/VariablesExpresiones.AssemblyInfo.cs
+/Users/eliezerguevara/Documents/USAC/IPC2/Ejemplo/Unidad1_Fundamentos/01_Variables_Expresiones/obj/Debug/net9.0/VariablesExpresiones.csproj.CoreCompileInputs.cache
+/Users/eliezerguevara/Documents/USAC/IPC2/Ejemplo/Unidad1_Fundamentos/01_Variables_Expresiones/obj/Debug/net9.0/VariablesExpresiones.dll
+/Users/eliezerguevara/Documents/USAC/IPC2/Ejemplo/Unidad1_Fundamentos/01_Variables_Expresiones/obj/Debug/net9.0/refint/VariablesExpresiones.dll
+/Users/eliezerguevara/Documents/USAC/IPC2/Ejemplo/Unidad1_Fundamentos/01_Variables_Expresiones/obj/Debug/net9.0/VariablesExpresiones.pdb
+/Users/eliezerguevara/Documents/USAC/IPC2/Ejemplo/Unidad1_Fundamentos/01_Variables_Expresiones/obj/Debug/net9.0/VariablesExpresiones.genruntimeconfig.cache
+/Users/eliezerguevara/Documents/USAC/IPC2/Ejemplo/Unidad1_Fundamentos/01_Variables_Expresiones/obj/Debug/net9.0/ref/VariablesExpresiones.dll
