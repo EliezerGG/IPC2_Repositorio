@@ -1,0 +1,60 @@
+# =============================================================
+#  .gitignore para proyectos C# / .NET  —  Curso IPC2 (USAC)
+#  Ignora archivos generados por la compilación y por los IDEs,
+#  que NO deben subirse al repositorio.
+# =============================================================
+
+# --- Resultados de compilación (.NET) ---
+# Carpetas que crea el compilador con los binarios; se regeneran solas.
+bin/
+obj/
+out/
+
+# --- Archivos de usuario / configuración local ---
+# Guardan preferencias personales de cada quien, no del proyecto.
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# --- Visual Studio ---
+# Carpeta oculta con caché e índices del IDE de Microsoft.
+.vs/
+
+# --- Visual Studio Code ---
+# Configuración del editor; opcional versionarla. Aquí se ignora.
+.vscode/
+
+# --- Rider / IntelliJ (JetBrains) ---
+# Metadatos del IDE de JetBrains.
+.idea/
+*.sln.iml
+
+# --- Compilaciones y publicación ---
+[Bb]uild/
+[Pp]ublish/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# --- Paquetes NuGet ---
+# Se restauran con "dotnet restore"; no se versionan.
+*.nupkg
+packages/
+!packages/build/
+
+# --- Archivos de pruebas y cobertura ---
+[Tt]est[Rr]esult*/
+*.coverage
+*.coveragexml
+
+# --- Logs y temporales ---
+*.log
+*.tmp
+*.cache
+
+# --- Sistema operativo ---
+# Archivos basura que crean macOS y Windows en las carpetas.
+.DS_Store
+Thumbs.db
