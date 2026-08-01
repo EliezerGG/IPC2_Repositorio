@@ -1,12 +1,4 @@
-// ============================================================
-//  IPC2 — Unidad 1: POO en C#
-//  Tema 1.4.3.3 — Polimorfismo
-// ============================================================
-//  Polimorfismo = "muchas formas". Un mismo mensaje
-//  (CalcularSueldo) produce un comportamiento DISTINTO según
-//  el tipo real del objeto — aunque todos se traten como
-//  Empleado desde afuera.
-// ============================================================
+
 
 abstract class Empleado
 {

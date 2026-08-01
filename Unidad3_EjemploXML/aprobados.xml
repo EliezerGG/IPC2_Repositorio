@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<aprobados>
+  <estudiante id="1">
+    <nombre>Ana Pérez</nombre>
+    <carnet>202100179</carnet>
+    <nota>85</nota>
+  </estudiante>
+  <estudiante id="3">
+    <nombre>María López</nombre>
+    <carnet>201931044</carnet>
+    <nota>91</nota>
+  </estudiante>
+  <estudiante id="5">
+    <nombre>Sofía Castillo</nombre>
+    <carnet>202088123</carnet>
+    <nota>73</nota>
+  </estudiante>
+</aprobados>

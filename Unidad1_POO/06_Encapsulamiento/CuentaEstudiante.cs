@@ -1,11 +1,3 @@
-// ============================================================
-//  IPC2 — Unidad 1: POO en C#
-//  Tema 1.4.3.4 — Encapsulamiento
-// ============================================================
-//  Encapsular = proteger el estado interno de un objeto y
-//  exponer solo lo necesario a través de una interfaz
-//  controlada (properties), evitando valores inválidos.
-// ============================================================
 
 class CuentaEstudiante
 {

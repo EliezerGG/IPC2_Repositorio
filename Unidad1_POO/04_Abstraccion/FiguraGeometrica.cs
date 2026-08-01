@@ -1,12 +1,4 @@
-// ============================================================
-//  IPC2 — Unidad 1: POO en C#
-//  Tema 1.4.3.2 — Abstracción
-// ============================================================
-//  Una clase abstracta define QUÉ debe hacer una figura
-//  (el "contrato"), sin implementar CÓMO. Las clases hijas
-//  están obligadas a completar esa implementación.
-//  No se puede hacer "new FiguraGeometrica(...)" directamente.
-// ============================================================
+
 
 abstract class FiguraGeometrica
 {

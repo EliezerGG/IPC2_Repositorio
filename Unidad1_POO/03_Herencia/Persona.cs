@@ -1,10 +1,4 @@
-// ============================================================
-//  IPC2 — Unidad 1: POO en C#
-//  Tema 1.4.3.1 — Herencia
-// ============================================================
-//  La herencia permite que una clase (hija) reutilice atributos
-//  y métodos de otra clase (padre), y los extienda o modifique.
-// ============================================================
+===========================================
 
 class Persona
 {

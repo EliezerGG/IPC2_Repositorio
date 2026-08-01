@@ -1,10 +1,4 @@
-// ============================================================
-//  IPC2 — Unidad 1: Fundamentos de C#
-//  Tema 1.3.2 — Ejecución Condicional
-// ============================================================
-//  Objetivo: usar if/else, operador ternario y switch
-//  expressions para tomar decisiones según datos de entrada.
-// ============================================================
+
 
 double promedio = 72.5;
 
@@ -70,6 +64,3 @@ else if (!asistio || !aprobado)
     Console.WriteLine("\nEl estudiante NO tiene derecho a evaluación final.");
 }
 
-// --- Ejercicio para el estudiante ---
-// TODO: Dado un carné (int), determinar con un switch expression
-// si el año de ingreso (primeros 4 dígitos) es 2023, 2024, 2025 o 2026.

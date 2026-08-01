@@ -1,11 +1,6 @@
-// ============================================================
-//  IPC2 — Unidad 1: Fundamentos de C#
-//  Tema 1.3.4 — Iteración
-// ============================================================
-//  Objetivo: recorrer datos con for, while, do-while y foreach.
-// ============================================================
 
-string[] estudiantes = { "Carlos", "Ana", "María", "Luis", "Pedro" };
+
+string[] estudiantes = { "Juanito", "Ana", "María", "Luis", "Pedro" };
 double[] notas       = { 85.0, 55.0, 91.5, 70.0, 40.0 };
 
 // --- for: cuando se conoce la cantidad de iteraciones ---
@@ -58,8 +53,3 @@ for (int fila = 1; fila <= 3; fila++)
     }
     Console.WriteLine();
 }
-
-// --- Ejercicio para el estudiante ---
-// TODO: Usando un for, recorrer el arreglo "notas" e imprimir
-// solamente las notas reprobadas (menores a 61), junto con el
-// nombre del estudiante correspondiente (usa el mismo índice).

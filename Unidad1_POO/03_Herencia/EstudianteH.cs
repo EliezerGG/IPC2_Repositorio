@@ -1,7 +1,4 @@
-// ============================================================
-//  IPC2 — Unidad 1: POO en C#
-//  Tema 1.4.3.1 — Herencia
-// ============================================================
+
 
 class EstudianteH : Persona   // ':' indica herencia — EstudianteH ES-UN Persona
 {

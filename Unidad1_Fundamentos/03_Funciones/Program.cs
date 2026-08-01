@@ -1,17 +1,11 @@
-// ============================================================
-//  IPC2 — Unidad 1: Fundamentos de C#
-//  Tema 1.3.3 — Funciones
-// ============================================================
-//  Objetivo: declarar funciones con parámetros y valor de
-//  retorno, funciones void, y sobrecarga de funciones.
-// ============================================================
+
 
 Console.WriteLine("=== Uso de funciones ===\n");
 
 double p1 = CalcularPromedio(85, 90, 78);
 double p2 = CalcularPromedio(60, 55, 70);
 
-MostrarResultado("Carlos Lima", p1);
+MostrarResultado("Juanito Pancho", p1);
 MostrarResultado("Ana García",  p2);
 
 Console.WriteLine("\n=== Sobrecarga de funciones (Overloading) ===");
@@ -20,7 +14,7 @@ Console.WriteLine($"Suma de 3 números: {Sumar(4, 5, 6)}");
 Console.WriteLine($"Suma de decimales: {Sumar(4.5, 5.25)}");
 
 Console.WriteLine("\n=== Función con parámetro opcional ===");
-Console.WriteLine(GenerarSaludo("Carlos"));
+Console.WriteLine(GenerarSaludo("Juanito"));
 Console.WriteLine(GenerarSaludo("Ana", "Buenas tardes"));
 
 
@@ -49,8 +43,3 @@ static string GenerarSaludo(string nombre, string saludo = "Hola")
 {
     return $"{saludo}, {nombre}. Bienvenido a IPC2.";
 }
-
-// --- Ejercicio para el estudiante ---
-// TODO: Crear una función "EsPar(int numero)" que retorne bool,
-// y otra "ClasificarNota(double nota)" que retorne un string
-// usando switch expression ("Excelente", "Bueno", "Regular", "Malo").

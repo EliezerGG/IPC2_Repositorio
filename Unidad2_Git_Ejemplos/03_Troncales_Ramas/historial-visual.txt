@@ -1,8 +1,0 @@
-*   af6a460 (HEAD -> main, tag: v1.0) Merge de feature/nueva-funcion a main
-|\  
-| * b569a09 (feature/nueva-funcion) Usa clase Estudiante desde el menú principal
-| * c4ea4a0 Agrega nota y método Aprobado a Estudiante
-| * cf022bb Agrega clase Estudiante
-|/  
-* 186835a Agrega menú principal en main
-* 6eb103d Commit inicial en main

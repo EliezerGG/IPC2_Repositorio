@@ -1,12 +1,9 @@
-// ============================================================
-//  IPC2 — Unidad 1: POO en C#
-//  Tema 1.4.1 — Clases y Objetos (Program.cs)
-// ============================================================
+
 
 Console.WriteLine("=== La clase Estudiante es el molde ===\n");
 
 // Cada 'new' crea un OBJETO distinto — una instancia de la clase
-Estudiante e1 = new Estudiante("Carlos Lima",  202300001, "Ing. en Ciencias y Sistemas");
+Estudiante e1 = new Estudiante("Juanito Pancho",  202300001, "Ing. en Ciencias y Sistemas");
 Estudiante e2 = new Estudiante("Ana García",   202300002, "Ing. en Ciencias y Sistemas");
 Estudiante e3 = new Estudiante("Luis Ramírez", 202300003, "Ing. Industrial");
 
@@ -27,7 +24,3 @@ foreach (Estudiante e in grupo)
     e.Presentarse();
 }
 
-// --- Ejercicio para el estudiante ---
-// TODO: Crea una clase "Curso" con atributos Nombre, Codigo y Creditos,
-// un constructor, y un método MostrarInfo(). Luego instanciá 2 objetos
-// Curso distintos en este mismo Program.cs.

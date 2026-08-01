@@ -1,4 +1,0 @@
-* 97762db (HEAD -> main) Corrige bug en validación
-* 42b5cb2 Agrega función validar nota
-* 29254be Agrega función sumar
-* a43e033 Commit inicial

@@ -1,10 +1,4 @@
-// ============================================================
-//  IPC2 — Unidad 1: Fundamentos de C#
-//  Tema 1.3.5 — Strings
-// ============================================================
-//  Objetivo: manipular cadenas de texto con los métodos más
-//  usados de la clase string, y procesar datos tipo CSV.
-// ============================================================
+
 
 string texto = "  Introducción a la Programación 2  ";
 
@@ -23,8 +17,8 @@ string abreviatura = curso.Substring(0, 12);  // (inicio, longitud)
 Console.WriteLine($"\nSubstring(0, 12): '{abreviatura}'");
 
 // --- Concatenación vs Interpolación ---
-string nombre = "Carlos";
-string apellido = "Lima";
+string nombre = "Juan";
+string apellido = "Alvarado";
 string completoConcat = nombre + " " + apellido;                 // concatenación
 string completoInterp = $"{nombre} {apellido}";                  // interpolación (preferida)
 Console.WriteLine($"\nConcatenado:   {completoConcat}");
@@ -32,7 +26,7 @@ Console.WriteLine($"Interpolado:   {completoInterp}");
 
 // --- Split: separar un string en partes (muy usado con CSV) ---
 Console.WriteLine("\n=== Split — procesando una línea tipo CSV ===");
-string lineaCsv = "Carlos Lima,202300001,88.5";
+string lineaCsv = "Juanito Pancho,202300001,88.5";
 string[] partes = lineaCsv.Split(',');
 
 string  nombreEst = partes[0];
@@ -58,7 +52,3 @@ foreach (string tema in temas)
 }
 Console.WriteLine(sb.ToString());
 
-// --- Ejercicio para el estudiante ---
-// TODO: Dada la línea "Ana García,202300002,55.0,Reprobado",
-// separarla con Split y mostrar cada campo con su etiqueta
-// correspondiente (Nombre, Carné, Nota, Estado).

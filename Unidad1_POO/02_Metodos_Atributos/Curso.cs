@@ -1,12 +1,4 @@
-// ============================================================
-//  IPC2 — Unidad 1: POO en C#
-//  Tema 1.4.2 — Métodos y Atributos
-// ============================================================
-//  Los atributos guardan el ESTADO de un objeto.
-//  Los métodos definen su COMPORTAMIENTO — pueden recibir
-//  parámetros, retornar valores, y hasta sobrecargarse
-//  (mismo nombre, distintos parámetros).
-// ============================================================
+
 
 class Curso
 {

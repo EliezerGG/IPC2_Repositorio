@@ -1,11 +1,4 @@
-// ============================================================
-//  IPC2 — Unidad 1: POO en C#
-//  Tema 1.4.1 — Clases y Objetos
-// ============================================================
-//  Una clase es un "molde" que define atributos (datos) y
-//  comportamiento (métodos). Un objeto es una instancia
-//  concreta de esa clase, creada con 'new'.
-// ============================================================
+
 
 class Estudiante
 {
