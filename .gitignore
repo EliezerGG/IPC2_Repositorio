@@ -500,3 +500,15 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,csharp,c++,linux,windows
+
+.DS_Store
+
+Presentaciones/
+
+/Presentaciones
+Presentaciones/Unidad1_Parte1_Fundamentos.pptx
+Presentaciones/Unidad1_Parte1_Fundamentos.key
+.zip*
+
+Presentaciones/Unidad1_Parte1_Fundamentos.key
+ejemplo_xml_unidad3.zip
