@@ -1,0 +1,56 @@
+{
+  "tienda": "Pixel Store",
+  "moneda": "GTQ",
+  "videojuegos": [
+    {
+      "id": 1,
+      "titulo": "The Legend of Códigos",
+      "genero": "Aventura",
+      "anio": 2021,
+      "precio": 249.99,
+      "multijugador": false,
+      "calificacion": 9.2,
+      "plataformas": [ "PC", "Switch" ]
+    },
+    {
+      "id": 2,
+      "titulo": "Galaxia Infinita",
+      "genero": "Estrategia",
+      "anio": 2023,
+      "precio": 179.5,
+      "multijugador": true,
+      "calificacion": 8.7,
+      "plataformas": [ "PC", "PlayStation", "Xbox" ]
+    },
+    {
+      "id": 3,
+      "titulo": "Carreras Neón",
+      "genero": "Carreras",
+      "anio": 2019,
+      "precio": 99.99,
+      "multijugador": true,
+      "calificacion": 7.4,
+      "plataformas": [ "PC" ]
+    },
+    {
+      "id": 4,
+      "titulo": "Reinos de Piedra",
+      "genero": "RPG",
+      "anio": 2024,
+      "precio": 320.0,
+      "multijugador": false,
+      "calificacion": null,
+      "plataformas": [ "PC", "PlayStation" ]
+    },
+    {
+      "id": 5,
+      "titulo": "Arena de Bloques",
+      "genero": "Battle Royale",
+      "anio": 2022,
+      "precio": 0.0,
+      "multijugador": true,
+      "calificacion": 8.1,
+      "plataformas": [ "PC", "Switch", "Xbox", "Mobile" ]
+    }
+  ]
+}
