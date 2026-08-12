@@ -14,7 +14,7 @@ namespace EjemploXML
             const string salida = "aprobados.xml";
 
             try
-            {
+            {   
                 // ---------- LECTURA ----------
                 LectorXml lector = new LectorXml(entrada);
                 Console.WriteLine($"Curso: {lector.Curso}");

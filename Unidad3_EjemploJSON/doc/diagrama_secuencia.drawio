@@ -1,0 +1,68 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="secuencia" name="Diagrama de secuencia">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="620" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ================= Lifelines ================= -->
+        <mxCell id="lp" value="Program : Main()" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#FDF3E3;strokeColor=#E87722;fontColor=#8A5300;fontStyle=1;fontSize=12;size=30;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="150" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="lf" value="File" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#EAF3FB;strokeColor=#2E86C1;fontColor=#1B4F72;fontStyle=1;fontSize=12;size=30;" vertex="1" parent="1">
+          <mxGeometry x="300" y="40" width="150" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="lj" value="JsonSerializer" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#EAF3FB;strokeColor=#2E86C1;fontColor=#1B4F72;fontStyle=1;fontSize=12;size=30;" vertex="1" parent="1">
+          <mxGeometry x="560" y="40" width="160" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="lc" value="catalogo : Catalogo" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#EAF3FB;strokeColor=#2E86C1;fontColor=#1B4F72;fontStyle=1;fontSize=12;size=30;" vertex="1" parent="1">
+          <mxGeometry x="820" y="40" width="150" height="500" as="geometry" />
+        </mxCell>
+
+        <!-- ================= Mensajes ================= -->
+        <!-- 1. ReadAllText -->
+        <mxCell id="m1" value="1: ReadAllText(&quot;catalogo.json&quot;)" style="html=1;verticalAlign=bottom;endArrow=block;fontSize=11;fontColor=#20303C;strokeColor=#20303C;exitX=1;exitY=0.16;exitDx=0;exitDy=0;entryX=0;entryY=0.16;entryDx=0;entryDy=0;" edge="1" parent="1" source="lp" target="lf">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- 2. return texto -->
+        <mxCell id="m2" value="2: texto : string" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;fontSize=11;fontColor=#4A4A4A;strokeColor=#4A4A4A;exitX=0;exitY=0.22;exitDx=0;exitDy=0;entryX=1;entryY=0.22;entryDx=0;entryDy=0;" edge="1" parent="1" source="lf" target="lp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- 3. Deserialize -->
+        <mxCell id="m3" value="3: Deserialize&lt;Catalogo&gt;(texto)" style="html=1;verticalAlign=bottom;endArrow=block;fontSize=11;fontColor=#20303C;strokeColor=#20303C;exitX=1;exitY=0.32;exitDx=0;exitDy=0;entryX=0;entryY=0.32;entryDx=0;entryDy=0;" edge="1" parent="1" source="lp" target="lj">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- 4. return catalogo -->
+        <mxCell id="m4" value="4: catalogo (objeto)" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;fontSize=11;fontColor=#4A4A4A;strokeColor=#4A4A4A;exitX=0;exitY=0.38;exitDx=0;exitDy=0;entryX=1;entryY=0.38;entryDx=0;entryDy=0;" edge="1" parent="1" source="lj" target="lp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- 5. recorrer Videojuegos -->
+        <mxCell id="m5" value="5: recorrer Videojuegos (foreach → mostrar)" style="html=1;verticalAlign=bottom;endArrow=block;fontSize=11;fontColor=#20303C;strokeColor=#20303C;exitX=1;exitY=0.48;exitDx=0;exitDy=0;entryX=0;entryY=0.48;entryDx=0;entryDy=0;" edge="1" parent="1" source="lp" target="lc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- 6. self: LINQ -->
+        <mxCell id="m6" value="6: LINQ Where + OrderByDescending → multijugador" style="html=1;verticalAlign=bottom;endArrow=block;fontSize=11;fontColor=#8A5300;strokeColor=#E87722;exitX=1;exitY=0.56;exitDx=0;exitDy=0;entryX=1;entryY=0.62;entryDx=0;entryDy=0;rounded=1;" edge="1" parent="1" source="lp" target="lp">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="250" y="320" />
+              <mxPoint x="250" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- 7. Serialize -->
+        <mxCell id="m7" value="7: Serialize(multijugador, WriteIndented)" style="html=1;verticalAlign=bottom;endArrow=block;fontSize=11;fontColor=#20303C;strokeColor=#20303C;exitX=1;exitY=0.72;exitDx=0;exitDy=0;entryX=0;entryY=0.72;entryDx=0;entryDy=0;" edge="1" parent="1" source="lp" target="lj">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- 8. return jsonSalida -->
+        <mxCell id="m8" value="8: jsonSalida : string" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;fontSize=11;fontColor=#4A4A4A;strokeColor=#4A4A4A;exitX=0;exitY=0.78;exitDx=0;exitDy=0;entryX=1;entryY=0.78;entryDx=0;entryDy=0;" edge="1" parent="1" source="lj" target="lp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- 9. WriteAllText -->
+        <mxCell id="m9" value="9: WriteAllText(&quot;multijugador.json&quot;, jsonSalida)" style="html=1;verticalAlign=bottom;endArrow=block;fontSize=11;fontColor=#20303C;strokeColor=#20303C;exitX=1;exitY=0.88;exitDx=0;exitDy=0;entryX=0;entryY=0.88;entryDx=0;entryDy=0;" edge="1" parent="1" source="lp" target="lf">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

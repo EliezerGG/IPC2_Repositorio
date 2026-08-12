@@ -1,0 +1,90 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="clases" name="Diagrama de clases">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ================= Videojuego ================= -->
+        <mxCell id="vj" value="Videojuego" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#EAF3FB;strokeColor=#2E86C1;fontColor=#1B4F72;swimlaneFillColor=#FFFFFF;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="260" height="294" as="geometry" />
+        </mxCell>
+        <mxCell id="vj1" value="+ Id : int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="vj">
+          <mxGeometry y="26" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="vj2" value="+ Titulo : string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="vj">
+          <mxGeometry y="52" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="vj3" value="+ Genero : string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="vj">
+          <mxGeometry y="78" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="vj4" value="+ Anio : int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="vj">
+          <mxGeometry y="104" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="vj5" value="+ Precio : double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="vj">
+          <mxGeometry y="130" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="vj6" value="+ Multijugador : bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="vj">
+          <mxGeometry y="156" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="vj7" value="+ Calificacion : double?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="vj">
+          <mxGeometry y="182" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="vj8" value="+ Plataformas : List&lt;string&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="vj">
+          <mxGeometry y="208" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="vjdiv" value="" style="line;strokeWidth=1;strokeColor=#2E86C1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="vj">
+          <mxGeometry y="234" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="vj9" value="+ ToString() : string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="vj">
+          <mxGeometry y="242" width="260" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- ================= Catalogo ================= -->
+        <mxCell id="cat" value="Catalogo" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#EAF3FB;strokeColor=#2E86C1;fontColor=#1B4F72;swimlaneFillColor=#FFFFFF;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="470" y="40" width="280" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="cat1" value="+ Tienda : string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="cat">
+          <mxGeometry y="26" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cat2" value="+ Moneda : string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="cat">
+          <mxGeometry y="52" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cat3" value="+ Videojuegos : List&lt;Videojuego&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="cat">
+          <mxGeometry y="78" width="280" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- ================= Program ================= -->
+        <mxCell id="prog" value="Program" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#FDF3E3;strokeColor=#E87722;fontColor=#8A5300;swimlaneFillColor=#FFFFFF;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="470" y="240" width="280" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="prog1" value="+ Main(args : string[]) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="prog">
+          <mxGeometry y="26" width="280" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- ================= Nota ================= -->
+        <mxCell id="nota" value="Program usa System.Text.Json (Serialize / Deserialize)&#10;y System.IO.File (ReadAllText / WriteAllText)." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#E87722;fontColor=#8A5300;fontSize=11;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="380" width="360" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ================= Relaciones ================= -->
+        <!-- Catalogo agrega Videojuego (agregación 1 -> 0..*) -->
+        <mxCell id="edge1" style="endArrow=open;endFill=0;startArrow=diamondThin;startFill=0;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#1B4F72;fontColor=#1B4F72;fontSize=11;exitX=0;exitY=0.5;entryX=1;entryY=0.3;" edge="1" parent="1" source="cat" target="vj">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1a" value="1" style="text;html=1;fontSize=11;fontColor=#1B4F72;" vertex="1" connectable="0" parent="edge1">
+          <mxGeometry x="-0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+        <mxCell id="edge1b" value="0..*" style="text;html=1;fontSize=11;fontColor=#1B4F72;" vertex="1" connectable="0" parent="edge1">
+          <mxGeometry x="0.8" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- Program depende de Catalogo (dependencia discontinua) -->
+        <mxCell id="edge2" value="usa" style="endArrow=open;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#E87722;fontColor=#8A5300;fontSize=11;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="prog" target="cat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
