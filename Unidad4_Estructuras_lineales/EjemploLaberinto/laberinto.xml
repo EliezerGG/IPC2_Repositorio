@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Laberinto de ejemplo. tipo: pared | camino | entrada | salida.
+     Coordenadas 1-based. Hay un camino de la entrada a la salida. -->
+<laberinto filas="5" columnas="7">
+    <celda fila="1" columna="1" tipo="pared" />
+    <celda fila="1" columna="2" tipo="pared" />
+    <celda fila="1" columna="3" tipo="pared" />
+    <celda fila="1" columna="4" tipo="pared" />
+    <celda fila="1" columna="5" tipo="pared" />
+    <celda fila="1" columna="6" tipo="pared" />
+    <celda fila="1" columna="7" tipo="pared" />
+
+    <celda fila="2" columna="1" tipo="entrada" />
+    <celda fila="2" columna="2" tipo="camino" />
+    <celda fila="2" columna="3" tipo="camino" />
+    <celda fila="2" columna="4" tipo="pared" />
+    <celda fila="2" columna="5" tipo="camino" />
+    <celda fila="2" columna="6" tipo="camino" />
+    <celda fila="2" columna="7" tipo="salida" />
+
+    <celda fila="3" columna="1" tipo="pared" />
+    <celda fila="3" columna="2" tipo="pared" />
+    <celda fila="3" columna="3" tipo="camino" />
+    <celda fila="3" columna="4" tipo="pared" />
+    <celda fila="3" columna="5" tipo="camino" />
+    <celda fila="3" columna="6" tipo="pared" />
+    <celda fila="3" columna="7" tipo="pared" />
+
+    <celda fila="4" columna="1" tipo="pared" />
+    <celda fila="4" columna="2" tipo="camino" />
+    <celda fila="4" columna="3" tipo="camino" />
+    <celda fila="4" columna="4" tipo="camino" />
+    <celda fila="4" columna="5" tipo="camino" />
+    <celda fila="4" columna="6" tipo="pared" />
+    <celda fila="4" columna="7" tipo="pared" />
+
+    <celda fila="5" columna="1" tipo="pared" />
+    <celda fila="5" columna="2" tipo="pared" />
+    <celda fila="5" columna="3" tipo="pared" />
+    <celda fila="5" columna="4" tipo="pared" />
+    <celda fila="5" columna="5" tipo="pared" />
+    <celda fila="5" columna="6" tipo="pared" />
+    <celda fila="5" columna="7" tipo="pared" />
+</laberinto>
