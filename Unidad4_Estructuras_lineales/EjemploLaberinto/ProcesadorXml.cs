@@ -32,8 +32,10 @@ namespace EjemploLaberinto
                 new XAttribute("filas", laberinto.Filas),
                 new XAttribute("columnas", laberinto.Columnas));
 
-            foreach (Celda c in laberinto.Celdas)
+            laberinto.Celdas.IniciarRecorrido();
+            while (laberinto.Celdas.HayMasCeldas())
             {
+                Celda c = laberinto.Celdas.SiguienteCelda();
                 raiz.Add(new XElement("celda",
                     new XAttribute("fila", c.Fila),
                     new XAttribute("columna", c.Columna),

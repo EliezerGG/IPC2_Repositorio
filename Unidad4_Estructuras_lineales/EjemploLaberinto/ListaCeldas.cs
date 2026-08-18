@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-
 namespace EjemploLaberinto
 {
     // TDA lista simplemente enlazada, específico para Celda.
-    // Implementación propia con nodos (sin List<T> ni arreglos).
-    public class ListaCeldas : IEnumerable<Celda>
+    // Implementación propia con nodos: sin List<T>, sin arreglos,
+    // y sin IEnumerable/IEnumerator (recorrido manual con cursor).
+    public class ListaCeldas
     {
         private class NodoCelda
         {
@@ -16,6 +14,8 @@ namespace EjemploLaberinto
 
         private NodoCelda _inicio;
         private NodoCelda _fin;
+        private NodoCelda _cursor; // usado por el recorrido manual
+
         private int _cantidad;
 
         public int Cantidad => _cantidad;
@@ -53,17 +53,35 @@ namespace EjemploLaberinto
             return null;
         }
 
-        // Recorrido para foreach.
-        public IEnumerator<Celda> GetEnumerator()
+        // --- Recorrido manual, sin foreach ni IEnumerable ---
+        // Uso típico:
+        //
+        //   lista.IniciarRecorrido();
+        //   while (lista.HayMasCeldas())
+        //   {
+        //       Celda c = lista.SiguienteCelda();
+        //       // ... procesar c ...
+        //   }
+        //
+        public void IniciarRecorrido()
         {
-            NodoCelda actual = _inicio;
-            while (actual != null)
-            {
-                yield return actual.Dato;
-                actual = actual.Siguiente;
-            }
+            _cursor = _inicio;
         }
 
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+        public bool HayMasCeldas()
+        {
+            return _cursor != null;
+        }
+
+        public Celda SiguienteCelda()
+        {
+            if (_cursor == null)
+            {
+                return null;
+            }
+            Celda dato = _cursor.Dato;
+            _cursor = _cursor.Siguiente;
+            return dato;
+        }
     }
 }
