@@ -1,0 +1,17 @@
+digraph Arbol {
+  node [shape=circle, style=filled, fillcolor="#EAF3FB", color="#1B4F72", fontname="Helvetica"];
+  edge [color="#1B4F72"];
+  50 [label="50\nTeclado"];
+  50 -> 30;
+  30 [label="30\nMouse"];
+  30 -> 20;
+  20 [label="20\nCable HDMI"];
+  30 -> 40;
+  40 [label="40\nAudifonos"];
+  50 -> 70;
+  70 [label="70\nMonitor"];
+  70 -> 60;
+  60 [label="60\nWebcam"];
+  70 -> 80;
+  80 [label="80\nImpresora"];
+}

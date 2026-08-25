@@ -1,0 +1,21 @@
+digraph AVL {
+  node [shape=circle, style=filled, fillcolor="#EAF3FB", color="#1B4F72", fontname="Helvetica"];
+  edge [color="#1B4F72"];
+  40 [label="40\nSistema lento\nfb=-1"];
+  40 -> 20;
+  20 [label="20\nCorreo bloqueado\nfb=0"];
+  20 -> 10;
+  10 [label="10\nNo enciende la PC\nfb=0"];
+  20 -> 30;
+  30 [label="30\nImpresora sin tinta\nfb=0"];
+  40 -> 60;
+  60 [label="60\nInstalar programa\nfb=-1"];
+  60 -> 50;
+  50 [label="50\nSin internet\nfb=0"];
+  60 -> 85;
+  85 [label="85\nCelular not working\nfb=0"];
+  85 -> 70;
+  70 [label="70\nCambio de contraseña\nfb=0"];
+  85 -> 87;
+  87 [label="87\nipad not working\nfb=0"];
+}
