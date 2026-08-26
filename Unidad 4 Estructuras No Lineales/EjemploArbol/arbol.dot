@@ -14,4 +14,10 @@ digraph Arbol {
   60 [label="60\nWebcam"];
   70 -> 80;
   80 [label="80\nImpresora"];
+  80 -> 85;
+  85 [label="85\nasd"];
+  85 -> 90;
+  90 [label="90\ngdrf"];
+  90 -> 95;
+  95 [label="95\njfkd"];
 }
