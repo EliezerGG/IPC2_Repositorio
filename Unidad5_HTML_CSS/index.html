@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!-- doctype: le dice al navegador que este documento es html5 -->
+<html lang="es">
+<!-- html: elemento raiz que envuelve toda la pagina; lang indica el idioma -->
+
+<head>
+    <!-- head: informacion que no se ve en la pagina -->
+    <meta charset="UTF-8">
+    <!-- meta charset: define la codificacion de caracteres (utf-8) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- meta viewport: hace que la pagina se adapte al ancho del dispositivo -->
+    <title>Taller de IPC2</title>
+    <!-- title: el texto que aparece en la pestana del navegador -->
+    <link rel="stylesheet" href="estilos.css">
+    <!-- link: conecta la hoja de estilos externa (el archivo css) -->
+</head>
+
+<body>
+    <!-- body: aqui va todo el contenido visible de la pagina -->
+
+    <header class="cabecera">
+        <!-- header: la cabecera o encabezado de la pagina -->
+        <h1>Taller de Desarrollo Web</h1>
+        <!-- h1: el titulo principal, el mas importante de la pagina -->
+        <p>Aprende HTML y CSS desde cero</p>
+        <!-- p: un parrafo de texto -->
+    </header>
+
+    <nav class="menu">
+        <!-- nav: la barra de navegacion con enlaces -->
+        <a href="#info">Informacion</a>
+        <!-- a: un enlace; href apunta a una seccion de esta misma pagina -->
+        <a href="#temario">Temario</a>
+        <!-- a: enlace hacia la seccion del temario -->
+        <a href="#inscripcion">Inscripcion</a>
+        <!-- a: enlace hacia la seccion de inscripcion -->
+    </nav>
+
+    <main>
+        <!-- main: el contenido principal de la pagina -->
+
+        <section id="info">
+            <!-- section: una seccion tematica; el id la identifica -->
+            <h2>Informacion del taller</h2>
+            <!-- h2: un subtitulo de segundo nivel -->
+            <img src="imagen.jpg" alt="Imagen del taller" width="320">
+            <!-- img: una imagen; src es la ruta y alt el texto alternativo -->
+            <p>Este taller es <strong>gratuito</strong> y para <em>principiantes</em>.</p>
+            <!-- strong: marca texto importante en negrita; em: da enfasis en cursiva -->
+        </section>
+
+        <section id="temario">
+            <!-- section del temario del taller -->
+            <h2>Temario</h2>
+            <!-- h2: subtitulo de la seccion -->
+            <ul>
+                <!-- ul: una lista sin orden (se muestra con puntos) -->
+                <li>Estructura basica de HTML</li>
+                <!-- li: cada elemento de la lista -->
+                <li>Etiquetas y atributos</li>
+                <!-- li: otro elemento de la lista -->
+                <li>Estilos con CSS</li>
+                <!-- li: otro elemento de la lista -->
+            </ul>
+
+            <h2>Horarios</h2>
+            <!-- h2: subtitulo para la tabla de horarios -->
+            <table>
+                <!-- table: una tabla de datos -->
+                <tr>
+                    <!-- tr: una fila de la tabla (la de encabezados) -->
+                    <th>Dia</th>
+                    <!-- th: celda de encabezado (se muestra en negrita) -->
+                    <th>Hora</th>
+                    <!-- th: otra celda de encabezado -->
+                </tr>
+                <tr>
+                    <!-- tr: una fila de datos -->
+                    <td>Martes</td>
+                    <!-- td: celda de datos -->
+                    <td>17:00</td>
+                    <!-- td: otra celda de datos -->
+                </tr>
+                <tr>
+                    <!-- tr: otra fila de datos -->
+                    <td>Jueves</td>
+                    <!-- td: celda de datos -->
+                    <td>17:00</td>
+                    <!-- td: otra celda de datos -->
+                </tr>
+            </table>
+        </section>
+
+        <section id="inscripcion">
+            <!-- section del formulario de inscripcion -->
+            <h2>Inscripcion</h2>
+            <!-- h2: subtitulo de la seccion -->
+            <form class="formulario">
+                <!-- form: agrupa los campos y los envia -->
+
+                <label for="nombre">Nombre:</label>
+                <!-- label: describe un campo; for lo enlaza con el id del input -->
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                <!-- input text: campo de texto de una linea; required lo hace obligatorio -->
+
+                <label for="correo">Correo:</label>
+                <!-- label del campo de correo -->
+                <input type="email" id="correo" name="correo" placeholder="tu@correo.com" required>
+                <!-- input email: valida que el texto tenga forma de correo -->
+
+                <label for="clave">Clave:</label>
+                <!-- label del campo de clave -->
+                <input type="password" id="clave" name="clave">
+                <!-- input password: oculta lo que se escribe -->
+
+                <label for="edad">Edad:</label>
+                <!-- label del campo de edad -->
+                <input type="number" id="edad" name="edad" min="15" max="99">
+                <!-- input number: solo acepta numeros; min y max limitan el rango -->
+
+                <label for="nivel">Nivel:</label>
+                <!-- label del campo de nivel -->
+                <select id="nivel" name="nivel">
+                    <!-- select: una lista desplegable de opciones -->
+                    <option>Principiante</option>
+                    <!-- option: cada opcion de la lista -->
+                    <option>Intermedio</option>
+                    <!-- option: otra opcion de la lista -->
+                </select>
+
+                <button type="submit">Enviar</button>
+                <!-- button submit: el boton que envia el formulario -->
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="pie">
+        <!-- footer: el pie de la pagina -->
+        <p>IPC2 - Escuela de Ciencias y Sistemas</p>
+        <!-- p: un parrafo con el credito de la pagina -->
+    </footer>
+
+</body>
+</html>

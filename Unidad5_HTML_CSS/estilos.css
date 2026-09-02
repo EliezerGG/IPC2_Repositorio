@@ -1,0 +1,191 @@
+/* :root guarda variables globales que se usan en toda la pagina */
+:root {
+    /* --color-principal: el azul del curso */
+    --color-principal: #2E86C1;
+    /* --color-oscuro: un azul mas oscuro para textos y fondos */
+    --color-oscuro: #1B4F72;
+    /* --color-fondo: un azul muy claro para el fondo general */
+    --color-fondo: #EAF3FB;
+}
+
+/* selector universal (*): aplica a todos los elementos */
+* {
+    /* margin 0: quita los margenes que traen por defecto */
+    margin: 0;
+    /* padding 0: quita el relleno que traen por defecto */
+    padding: 0;
+    /* box-sizing: incluye el borde y el relleno dentro del ancho */
+    box-sizing: border-box;
+}
+
+/* body: estilos generales de toda la pagina */
+body {
+    /* font-family: el tipo de letra */
+    font-family: Arial, sans-serif;
+    /* color: el color del texto (usa la variable) */
+    color: var(--color-oscuro);
+    /* background-color: el color de fondo (usa la variable) */
+    background-color: var(--color-fondo);
+    /* line-height: la separacion entre lineas de texto */
+    line-height: 1.5;
+}
+
+/* .cabecera: da estilo al header por medio de su clase */
+.cabecera {
+    /* background-color: fondo con el color principal */
+    background-color: var(--color-principal);
+    /* color: texto en blanco */
+    color: white;
+    /* padding: espacio interno alrededor del contenido */
+    padding: 20px;
+    /* text-align: centra el texto */
+    text-align: center;
+}
+
+/* .menu: la barra de navegacion */
+.menu {
+    /* display flex: acomoda los enlaces en una fila */
+    display: flex;
+    /* gap: separacion entre los enlaces */
+    gap: 15px;
+    /* background-color: fondo oscuro */
+    background-color: var(--color-oscuro);
+    /* padding: espacio interno (arriba-abajo y a los lados) */
+    padding: 10px 20px;
+}
+
+/* .menu a: los enlaces que estan dentro del menu (selector descendiente) */
+.menu a {
+    /* color: enlaces en blanco */
+    color: white;
+    /* text-decoration none: quita el subrayado del enlace */
+    text-decoration: none;
+}
+
+/* .menu a:hover: cuando el mouse pasa encima del enlace (pseudo-clase) */
+.menu a:hover {
+    /* text-decoration underline: subraya el enlace al pasar el mouse */
+    text-decoration: underline;
+}
+
+/* main: el contenedor del contenido principal */
+main {
+    /* max-width: ancho maximo del contenido */
+    max-width: 800px;
+    /* margin auto: centra el bloque de forma horizontal */
+    margin: 20px auto;
+    /* padding: un poco de espacio a los lados */
+    padding: 0 20px;
+}
+
+/* section: cada seccion del contenido */
+section {
+    /* background-color: fondo blanco */
+    background-color: white;
+    /* padding: espacio interno */
+    padding: 20px;
+    /* margin-bottom: separacion debajo de cada seccion */
+    margin-bottom: 20px;
+    /* border-radius: esquinas redondeadas */
+    border-radius: 8px;
+}
+
+/* h2: los subtitulos de las secciones (selector por etiqueta) */
+h2 {
+    /* color: usa el color principal */
+    color: var(--color-principal);
+    /* margin-bottom: espacio debajo del subtitulo */
+    margin-bottom: 10px;
+}
+
+/* img: da un poco de aire debajo de la imagen */
+img {
+    /* margin: separacion arriba y abajo */
+    margin: 10px 0;
+    /* border-radius: esquinas redondeadas en la imagen */
+    border-radius: 6px;
+}
+
+/* table: la tabla de horarios */
+table {
+    /* border-collapse: une los bordes de las celdas en uno solo */
+    border-collapse: collapse;
+    /* width: ocupa todo el ancho disponible */
+    width: 100%;
+    /* margin-top: separacion arriba de la tabla */
+    margin-top: 10px;
+}
+
+/* th y td: las celdas de encabezado y de datos (selector agrupado) */
+th, td {
+    /* border: un borde gris fino */
+    border: 1px solid #cccccc;
+    /* padding: espacio interno de la celda */
+    padding: 8px;
+    /* text-align: alinea el texto a la izquierda */
+    text-align: left;
+}
+
+/* th: solo las celdas de encabezado */
+th {
+    /* background-color: fondo con el color principal */
+    background-color: var(--color-principal);
+    /* color: texto en blanco */
+    color: white;
+}
+
+/* .formulario: el formulario de inscripcion */
+.formulario {
+    /* display flex: coloca los campos en columna */
+    display: flex;
+    /* flex-direction column: uno debajo del otro */
+    flex-direction: column;
+    /* gap: separacion entre cada campo */
+    gap: 8px;
+}
+
+/* input y select: los campos donde se escribe o elige */
+input, select {
+    /* padding: espacio interno del campo */
+    padding: 8px;
+    /* border: un borde gris */
+    border: 1px solid #cccccc;
+    /* border-radius: esquinas redondeadas */
+    border-radius: 4px;
+}
+
+/* button: el boton de enviar */
+button {
+    /* background-color: fondo con el color principal */
+    background-color: var(--color-principal);
+    /* color: texto en blanco */
+    color: white;
+    /* border none: sin borde */
+    border: none;
+    /* padding: espacio interno */
+    padding: 10px;
+    /* border-radius: esquinas redondeadas */
+    border-radius: 4px;
+    /* cursor pointer: muestra una mano al pasar el mouse */
+    cursor: pointer;
+    /* margin-top: separacion arriba del boton */
+    margin-top: 10px;
+}
+
+/* button:hover: el boton cuando el mouse pasa encima */
+button:hover {
+    /* background-color: usa el azul mas oscuro */
+    background-color: var(--color-oscuro);
+}
+
+/* .pie: el pie de pagina (por su clase) */
+.pie {
+    /* background-color: fondo oscuro */
+    background-color: var(--color-oscuro);
+    /* color: texto en blanco */
+    color: white;
+    /* text-align: centra el texto */
+    text-align: center;
+    /* padding: espacio interno */
+    padding: 15px;
+}
