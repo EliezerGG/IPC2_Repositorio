@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- doctype: indica que este documento es html5 -->
+<html lang="es">
+<!-- html: elemento raiz; lang indica el idioma -->
+
+<head>
+    <!-- head: informacion que no se ve en la pagina -->
+    <meta charset="UTF-8">
+    <!-- meta charset: define la codificacion de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- meta viewport: adapta la pagina al ancho del dispositivo -->
+    <title>MVC con Vanilla JS</title>
+    <!-- title: el texto de la pestana del navegador -->
+    <link rel="stylesheet" href="estilos.css">
+    <!-- link: conecta la hoja de estilos -->
+</head>
+
+<body>
+    <!-- body: contenido visible de la pagina -->
+
+    <header class="cabecera">
+        <!-- header: la cabecera de la pagina -->
+        <h1>Lista de Tareas</h1>
+        <!-- h1: el titulo principal -->
+        <p>Ejemplo del patron MVC con HTML, CSS y JavaScript</p>
+        <!-- p: un parrafo con la descripcion -->
+    </header>
+
+    <main>
+        <!-- main: el contenido principal -->
+
+        <div class="agregar">
+            <!-- div: agrupa el campo de texto y el boton -->
+            <input type="text" id="entrada" placeholder="Escribe una tarea">
+            <!-- input: donde se escribe la tarea; la vista lo lee por su id -->
+            <button id="boton-agregar">Agregar</button>
+            <!-- button: el boton para agregar; el controlador reacciona a su clic -->
+        </div>
+
+        <ul id="lista-tareas"></ul>
+        <!-- ul: la lista vacia; la vista dibuja aqui las tareas -->
+
+        <p class="ayuda">Haz clic en el texto para marcar la tarea; en la x para borrarla.</p>
+        <!-- p: una ayuda para el usuario -->
+    </main>
+
+    <!-- se cargan las tres partes del mvc, cada una en su archivo -->
+    <script src="modelo.js"></script>
+    <!-- modelo: los datos y la logica -->
+    <script src="vista.js"></script>
+    <!-- vista: dibuja las tareas en la pagina -->
+    <script src="controlador.js"></script>
+    <!-- controlador: conecta el modelo con la vista -->
+    <script src="app.js"></script>
+    <!-- app: crea las tres partes y arranca todo -->
+</body>
+</html>

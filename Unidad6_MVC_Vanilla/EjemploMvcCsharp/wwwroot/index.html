@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- doctype: indica que es html5 -->
+<html lang="es">
+<!-- html: elemento raiz; lang indica el idioma -->
+
+<head>
+    <!-- head: informacion que no se ve en la pagina -->
+    <meta charset="UTF-8">
+    <!-- meta charset: codificacion de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- meta viewport: adapta la pagina al ancho del dispositivo -->
+    <title>MVC con C# (ASP.NET Core)</title>
+    <!-- title: texto de la pestana del navegador -->
+    <link rel="stylesheet" href="estilos.css">
+    <!-- link: conecta la hoja de estilos -->
+</head>
+
+<body>
+    <!-- body: contenido visible de la pagina -->
+
+    <header class="cabecera">
+        <!-- header: la cabecera de la pagina -->
+        <h1>Lista de Tareas</h1>
+        <!-- h1: el titulo principal -->
+        <p>Front end vanilla que consume una API en C# (ASP.NET Core)</p>
+        <!-- p: descripcion de la pagina -->
+    </header>
+
+    <main>
+        <!-- main: contenido principal -->
+
+        <div class="agregar">
+            <!-- div: agrupa el campo y el boton -->
+            <input type="text" id="entrada" placeholder="Escribe una tarea">
+            <!-- input: donde se escribe la tarea -->
+            <button id="boton-agregar">Agregar</button>
+            <!-- button: envia la tarea nueva a la api -->
+        </div>
+
+        <ul id="lista-tareas"></ul>
+        <!-- ul: la lista; el javascript la llena con lo que responde la api -->
+
+        <p class="ayuda">Haz clic en el texto para marcar la tarea; en la x para borrarla.</p>
+        <!-- p: ayuda para el usuario -->
+    </main>
+
+    <script src="app.js"></script>
+    <!-- app.js: pide los datos a la api de c# y dibuja las tareas -->
+</body>
+</html>

@@ -1,0 +1,163 @@
+/* :root guarda las variables de color de la pagina */
+:root {
+    /* --color-principal: el azul del curso */
+    --color-principal: #2E86C1;
+    /* --color-oscuro: un azul mas oscuro */
+    --color-oscuro: #1B4F72;
+    /* --color-fondo: un azul muy claro para el fondo */
+    --color-fondo: #EAF3FB;
+}
+
+/* selector universal: aplica a todos los elementos */
+* {
+    /* quita los margenes por defecto */
+    margin: 0;
+    /* quita el relleno por defecto */
+    padding: 0;
+    /* incluye borde y relleno dentro del ancho */
+    box-sizing: border-box;
+}
+
+/* body: estilos generales de la pagina */
+body {
+    /* tipo de letra */
+    font-family: Arial, sans-serif;
+    /* color del texto */
+    color: var(--color-oscuro);
+    /* color de fondo */
+    background-color: var(--color-fondo);
+}
+
+/* .cabecera: estilo de la cabecera */
+.cabecera {
+    /* fondo con el color principal */
+    background-color: var(--color-principal);
+    /* texto en blanco */
+    color: white;
+    /* espacio interno */
+    padding: 20px;
+    /* centra el texto */
+    text-align: center;
+}
+
+/* main: el contenedor principal, centrado y angosto */
+main {
+    /* ancho maximo */
+    max-width: 500px;
+    /* centra el bloque de forma horizontal */
+    margin: 20px auto;
+    /* espacio a los lados */
+    padding: 0 20px;
+}
+
+/* .agregar: la fila con el campo de texto y el boton */
+.agregar {
+    /* acomoda los elementos en una fila */
+    display: flex;
+    /* separacion entre el campo y el boton */
+    gap: 8px;
+}
+
+/* input: el campo de texto */
+input {
+    /* ocupa todo el espacio disponible de la fila */
+    flex: 1;
+    /* espacio interno */
+    padding: 10px;
+    /* borde gris */
+    border: 1px solid #cccccc;
+    /* esquinas redondeadas */
+    border-radius: 4px;
+}
+
+/* button: los botones */
+button {
+    /* fondo con el color principal */
+    background-color: var(--color-principal);
+    /* texto en blanco */
+    color: white;
+    /* sin borde */
+    border: none;
+    /* espacio interno */
+    padding: 10px 15px;
+    /* esquinas redondeadas */
+    border-radius: 4px;
+    /* muestra una mano al pasar el mouse */
+    cursor: pointer;
+}
+
+/* button:hover: el boton al pasar el mouse encima */
+button:hover {
+    /* usa el azul mas oscuro */
+    background-color: var(--color-oscuro);
+}
+
+/* ul: la lista de tareas */
+ul {
+    /* quita los puntos de la lista */
+    list-style: none;
+    /* separacion arriba de la lista */
+    margin-top: 15px;
+}
+
+/* li: cada tarea de la lista */
+li {
+    /* acomoda el texto y el boton en una fila */
+    display: flex;
+    /* separa el texto (izquierda) del boton (derecha) */
+    justify-content: space-between;
+    /* centra verticalmente el contenido */
+    align-items: center;
+    /* fondo blanco */
+    background-color: white;
+    /* espacio interno */
+    padding: 12px;
+    /* separacion entre tareas */
+    margin-bottom: 8px;
+    /* esquinas redondeadas */
+    border-radius: 4px;
+}
+
+/* .texto: el texto de una tarea */
+.texto {
+    /* muestra una mano para invitar a hacer clic */
+    cursor: pointer;
+    /* ocupa el espacio disponible */
+    flex: 1;
+}
+
+/* .hecha .texto: el texto de una tarea marcada como hecha */
+.hecha .texto {
+    /* tacha el texto */
+    text-decoration: line-through;
+    /* lo pone en gris */
+    color: #999999;
+}
+
+/* .borrar: el boton de borrar de cada tarea */
+.borrar {
+    /* fondo rojo */
+    background-color: #C0392B;
+    /* letra mas pequena */
+    font-size: 12px;
+    /* espacio interno mas chico */
+    padding: 4px 9px;
+}
+
+/* .borrar:hover: el boton borrar al pasar el mouse */
+.borrar:hover {
+    /* un rojo mas oscuro */
+    background-color: #922B21;
+}
+
+/* .ayuda: el texto de ayuda debajo de la lista */
+.ayuda {
+    /* letra mas pequena */
+    font-size: 12px;
+    /* color gris */
+    color: #777777;
+    /* separacion arriba */
+    margin-top: 10px;
+    /* centra el texto */
+    text-align: center;
+}
