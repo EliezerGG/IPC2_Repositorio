@@ -1,0 +1,16 @@
+{
+  "movimientos": [
+    {
+      "codigo": "REP-003",
+      "tipo": "entrada",
+      "cantidad": 5,
+      "motivo": "este se deshace por el error siguiente"
+    },
+    {
+      "codigo": "REP-002",
+      "tipo": "salida",
+      "cantidad": 50,
+      "motivo": "hay 8 unidades, no alcanza"
+    }
+  ]
+}

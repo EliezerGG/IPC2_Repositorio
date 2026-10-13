@@ -1,0 +1,22 @@
+{
+  "movimientos": [
+    {
+      "codigo": "REP-003",
+      "tipo": "entrada",
+      "cantidad": 15,
+      "motivo": "compra a proveedor"
+    },
+    {
+      "codigo": "REP-001",
+      "tipo": "salida",
+      "cantidad": 5,
+      "motivo": "venta mostrador"
+    },
+    {
+      "codigo": "REP-002",
+      "tipo": "entrada",
+      "cantidad": 6,
+      "motivo": "reposicion"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- proyecto web con minimal api sobre net10 -->
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <!-- avisos cuando algo puede ser null -->
+    <Nullable>enable</Nullable>
+    <!-- using de uso comun incluidos automaticamente -->
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <!-- unico paquete externo: el driver de sqlite -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.0" />
+  </ItemGroup>
+
+</Project>

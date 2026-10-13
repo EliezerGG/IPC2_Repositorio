@@ -1,0 +1,15 @@
+{
+  "movimientos": [
+    {
+      "codigo": "rep-005",
+      "tipo": "ENTRADA",
+      "cantidad": 2,
+      "motivo": "el codigo y el tipo se normalizan"
+    },
+    {
+      "codigo": "Rep-003",
+      "tipo": "Salida",
+      "cantidad": 1
+    }
+  ]
+}

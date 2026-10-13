@@ -1,0 +1,16 @@
+{
+  "movimientos": [
+    {
+      "codigo": "REP-004",
+      "tipo": "salida",
+      "cantidad": 4,
+      "motivo": "venta"
+    },
+    {
+      "codigo": "REP-004",
+      "tipo": "entrada",
+      "cantidad": 10,
+      "motivo": "reposicion el mismo dia"
+    }
+  ]
+}

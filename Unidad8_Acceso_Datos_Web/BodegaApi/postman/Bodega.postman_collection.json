@@ -1,0 +1,1046 @@
+{
+  "info": {
+    "_postman_id": "6e9997e8-bd6a-4a91-8e68-2ef8dfe6af01",
+    "name": "Bodega API - IPC2",
+    "description": "coleccion de pruebas para la api de la bodega de repuestos. cada request trae sus tests: ejecuta la coleccion completa con el runner de postman.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "0 Preparacion",
+      "item": [
+        {
+          "name": "Reiniciar datos con ejemplo (200)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reiniciar?ejemplo=true",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reiniciar"
+              ],
+              "query": [
+                {
+                  "key": "ejemplo",
+                  "value": "true"
+                }
+              ]
+            },
+            "description": "borra todo y vuelve a cargar los cinco productos de ejemplo. conviene ejecutarlo antes de probar."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('avisa que cargo los datos de ejemplo', function () { pm.expect(pm.response.json().datosDeEjemplo).to.eql(true); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "1 Productos",
+      "item": [
+        {
+          "name": "Listar productos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/productos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "productos"
+              ]
+            },
+            "description": "get de la lista completa. responde 200 con un arreglo json."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('devuelve una lista con REP-001', function () {",
+                  "  const lista = pm.response.json();",
+                  "  pm.expect(lista).to.be.an('array');",
+                  "  pm.expect(lista.map(p => p.codigo)).to.include('REP-001');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Obtener un producto (REP-001)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/productos/REP-001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "productos",
+                "REP-001"
+              ]
+            },
+            "description": "get de un producto por codigo. el codigo se normaliza a mayusculas, asi que rep-001 tambien funciona."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('codigo correcto', function () { pm.expect(pm.response.json().codigo).to.eql('REP-001'); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Producto que no existe (404)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/productos/NOPE",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "productos",
+                "NOPE"
+              ]
+            },
+            "description": "un codigo inexistente responde 404 con el cuerpo {\"error\": \"...\"}."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 404', function () { pm.response.to.have.status(404); });",
+                  "pm.test('trae un mensaje de error', function () { pm.expect(pm.response.json().error).to.be.a('string'); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Crear producto (201)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/productos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "productos"
+              ]
+            },
+            "description": "post con un json en el cuerpo. responde 201 Created y la cabecera location.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"{{codigoNuevo}}\",\n  \"nombre\": \"Amortiguador delantero\",\n  \"stock\": 4,\n  \"stockMinimo\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// genera un codigo distinto en cada ejecucion para poder repetir la coleccion",
+                  "pm.collectionVariables.set('codigoNuevo', 'REP-' + Math.floor(1000 + Math.random() * 9000));"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 201', function () { pm.response.to.have.status(201); });",
+                  "pm.test('la cabecera location apunta al recurso creado', function () {",
+                  "  pm.expect(pm.response.headers.get('Location')).to.include(pm.collectionVariables.get('codigoNuevo'));",
+                  "});",
+                  "pm.test('el cuerpo trae el producto', function () {",
+                  "  pm.expect(pm.response.json().codigo).to.eql(pm.collectionVariables.get('codigoNuevo'));",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Crear producto repetido (409)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/productos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "productos"
+              ]
+            },
+            "description": "el mismo codigo dos veces: conflicto con el estado actual.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"{{codigoNuevo}}\",\n  \"nombre\": \"Amortiguador delantero\",\n  \"stock\": 4,\n  \"stockMinimo\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 409', function () { pm.response.to.have.status(409); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Crear producto con stock negativo (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/productos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "productos"
+              ]
+            },
+            "description": "falla la validacion de negocio: 400 Bad Request.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"REP-777\",\n  \"nombre\": \"Prueba\",\n  \"stock\": -3,\n  \"stockMinimo\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 400', function () { pm.response.to.have.status(400); });",
+                  "pm.test('el mensaje explica el motivo', function () { pm.expect(pm.response.json().error).to.include('negativo'); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Json mal formado (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/productos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "productos"
+              ]
+            },
+            "description": "el json esta incompleto: asp.net core lo rechaza antes de llegar a nuestro codigo.",
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"codigo\": \"REP-778\", \"nombre\": ",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 400', function () { pm.response.to.have.status(400); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Content-Type incorrecto (415)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/productos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "productos"
+              ]
+            },
+            "description": "el cuerpo es un json valido pero la cabecera dice text/plain: 415 Unsupported Media Type.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"REP-779\",\n  \"nombre\": \"Prueba\",\n  \"stock\": 1,\n  \"stockMinimo\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "text"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 415', function () { pm.response.to.have.status(415); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2 Movimientos (un json)",
+      "item": [
+        {
+          "name": "Entrada de stock (201)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/movimientos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "movimientos"
+              ]
+            },
+            "description": "recibe un json, valida, actualiza el stock y guarda el movimiento en una transaccion.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"REP-001\",\n  \"tipo\": \"entrada\",\n  \"cantidad\": 10,\n  \"motivo\": \"compra a proveedor\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 201', function () { pm.response.to.have.status(201); });",
+                  "pm.test('el stock nuevo es el anterior mas 10', function () {",
+                  "  const r = pm.response.json();",
+                  "  pm.expect(r.stockNuevo).to.eql(r.stockAnterior + 10);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Salida de stock (201)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/movimientos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "movimientos"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"REP-001\",\n  \"tipo\": \"salida\",\n  \"cantidad\": 3,\n  \"motivo\": \"venta mostrador\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 201', function () { pm.response.to.have.status(201); });",
+                  "pm.test('el stock nuevo es el anterior menos 3', function () {",
+                  "  const r = pm.response.json();",
+                  "  pm.expect(r.stockNuevo).to.eql(r.stockAnterior - 3);",
+                  "});",
+                  "pm.test('trae la bandera de alerta', function () { pm.expect(pm.response.json()).to.have.property('alertaReposicion'); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Salida mayor al stock (409)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/movimientos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "movimientos"
+              ]
+            },
+            "description": "regla de negocio: no se puede sacar mas de lo que hay.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"REP-001\",\n  \"tipo\": \"salida\",\n  \"cantidad\": 90000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 409', function () { pm.response.to.have.status(409); });",
+                  "pm.test('el mensaje indica stock insuficiente', function () { pm.expect(pm.response.json().error).to.include('stock insuficiente'); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Producto inexistente (404)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/movimientos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "movimientos"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"ZZZ-000\",\n  \"tipo\": \"entrada\",\n  \"cantidad\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 404', function () { pm.response.to.have.status(404); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Tipo invalido (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/movimientos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "movimientos"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"REP-001\",\n  \"tipo\": \"traslado\",\n  \"cantidad\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 400', function () { pm.response.to.have.status(400); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Cantidad cero (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/movimientos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "movimientos"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"REP-001\",\n  \"tipo\": \"entrada\",\n  \"cantidad\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 400', function () { pm.response.to.have.status(400); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3 Lotes (un json con lista)",
+      "item": [
+        {
+          "name": "Lote correcto (201)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/movimientos/lote",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "movimientos",
+                "lote"
+              ]
+            },
+            "description": "un json con una lista: se procesan todos dentro de una sola transaccion.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"movimientos\": [\n    {\n      \"codigo\": \"REP-003\",\n      \"tipo\": \"entrada\",\n      \"cantidad\": 15,\n      \"motivo\": \"compra a proveedor\"\n    },\n    {\n      \"codigo\": \"REP-001\",\n      \"tipo\": \"salida\",\n      \"cantidad\": 5,\n      \"motivo\": \"venta mostrador\"\n    },\n    {\n      \"codigo\": \"REP-002\",\n      \"tipo\": \"entrada\",\n      \"cantidad\": 6,\n      \"motivo\": \"reposicion\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 201', function () { pm.response.to.have.status(201); });",
+                  "pm.test('el resumen suma bien', function () {",
+                  "  const r = pm.response.json();",
+                  "  pm.expect(r.procesados).to.eql(3);",
+                  "  pm.expect(r.unidadesEntrada).to.eql(21);",
+                  "  pm.expect(r.unidadesSalida).to.eql(5);",
+                  "  pm.expect(r.movimientos).to.have.lengthOf(3);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Lote con un error (409 y rollback)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/movimientos/lote",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "movimientos",
+                "lote"
+              ]
+            },
+            "description": "el segundo movimiento falla, asi que el primero tambien se deshace.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"movimientos\": [\n    {\n      \"codigo\": \"REP-003\",\n      \"tipo\": \"entrada\",\n      \"cantidad\": 5\n    },\n    {\n      \"codigo\": \"REP-002\",\n      \"tipo\": \"salida\",\n      \"cantidad\": 90000\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// guardamos el stock de rep-003 antes de enviar el lote",
+                  "pm.sendRequest(pm.collectionVariables.get('baseUrl') + '/api/productos/REP-003', function (err, res) {",
+                  "  pm.collectionVariables.set('stockAntes', res.json().stock);",
+                  "});"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 409', function () { pm.response.to.have.status(409); });",
+                  "pm.test('el error indica cual movimiento fallo', function () { pm.expect(pm.response.json().error).to.include('movimiento 2'); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Verificar que el rollback no cambio nada",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/productos/REP-003",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "productos",
+                "REP-003"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('el stock de REP-003 sigue igual que antes del lote', function () {",
+                  "  pm.expect(pm.response.json().stock).to.eql(Number(pm.collectionVariables.get('stockAntes')));",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Lote vacio (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/movimientos/lote",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "movimientos",
+                "lote"
+              ]
+            },
+            "description": "",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"movimientos\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 400', function () { pm.response.to.have.status(400); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "4 Historial",
+      "item": [
+        {
+          "name": "Ultimos 5 movimientos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/movimientos?limite=5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "movimientos"
+              ],
+              "query": [
+                {
+                  "key": "limite",
+                  "value": "5"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('no devuelve mas de 5', function () { pm.expect(pm.response.json().length).to.be.at.most(5); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Historial de REP-001",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/movimientos?codigo=REP-001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "movimientos"
+              ],
+              "query": [
+                {
+                  "key": "codigo",
+                  "value": "REP-001"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('todas las filas son de REP-001', function () {",
+                  "  pm.response.json().forEach(m => pm.expect(m.codigo).to.eql('REP-001'));",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5 Vaciar y restaurar",
+      "item": [
+        {
+          "name": "Vaciar todo (200)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reiniciar?ejemplo=false",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reiniciar"
+              ],
+              "query": [
+                {
+                  "key": "ejemplo",
+                  "value": "false"
+                }
+              ]
+            },
+            "description": "borra productos y movimientos sin cargar nada."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('avisa que la base quedo vacia', function () { pm.expect(pm.response.json().datosDeEjemplo).to.eql(false); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Comprobar que no quedan productos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/productos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "productos"
+              ]
+            },
+            "description": ""
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('la lista esta vacia', function () { pm.expect(pm.response.json()).to.have.lengthOf(0); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Restaurar datos de ejemplo (200)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/reiniciar?ejemplo=true",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "reiniciar"
+              ],
+              "query": [
+                {
+                  "key": "ejemplo",
+                  "value": "true"
+                }
+              ]
+            },
+            "description": "deja la base lista para la siguiente corrida."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('estado 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5080"
+    },
+    {
+      "key": "codigoNuevo",
+      "value": ""
+    },
+    {
+      "key": "stockAntes",
+      "value": ""
+    }
+  ]
+}

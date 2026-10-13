@@ -1,0 +1,4 @@
+{
+  "movimientos": [
+    { "codigo": "REP-001", "tipo": "entrada", "cantidad": 3 },
+    { "codigo": "REP-002", "tipo": "salida"

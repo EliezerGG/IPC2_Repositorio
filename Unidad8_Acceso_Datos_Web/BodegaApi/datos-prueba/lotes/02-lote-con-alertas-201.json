@@ -1,0 +1,22 @@
+{
+  "movimientos": [
+    {
+      "codigo": "REP-004",
+      "tipo": "salida",
+      "cantidad": 3,
+      "motivo": "venta de bateria"
+    },
+    {
+      "codigo": "REP-001",
+      "tipo": "salida",
+      "cantidad": 15,
+      "motivo": "pedido de taller"
+    },
+    {
+      "codigo": "REP-005",
+      "tipo": "entrada",
+      "cantidad": 8,
+      "motivo": "compra a proveedor"
+    }
+  ]
+}

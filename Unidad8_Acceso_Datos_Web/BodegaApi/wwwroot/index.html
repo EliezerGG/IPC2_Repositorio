@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- codificacion para que se vean bien las tildes -->
+  <meta charset="utf-8">
+  <!-- ajuste para pantallas pequenas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bodega de repuestos</title>
+  <!-- estilos en un archivo aparte -->
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <!-- encabezado de la pagina -->
+  <header>
+    <h1>Bodega de repuestos</h1>
+    <p>Frontend sencillo que consume la api con fetch</p>
+  </header>
+
+  <main>
+    <!-- columna izquierda: datos que vienen de la api -->
+    <section class="columna">
+      <article class="tarjeta">
+        <h2>Productos</h2>
+        <table id="tabla-productos">
+          <thead>
+            <tr><th>Codigo</th><th>Nombre</th><th>Stock</th><th>Minimo</th><th>Estado</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </article>
+
+      <article class="tarjeta">
+        <h2>Historial de movimientos</h2>
+        <table id="tabla-historial">
+          <thead>
+            <tr><th>Id</th><th>Codigo</th><th>Tipo</th><th>Cantidad</th><th>Motivo</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </article>
+
+      <article class="tarjeta">
+        <h2>Base de datos</h2>
+        <p class="ayuda">Borra todos los productos y movimientos. Util para repetir una prueba desde cero.</p>
+        <!-- las dos acciones piden confirmacion antes de borrar -->
+        <div class="botones">
+          <button id="btn-reiniciar" type="button">Reiniciar con datos de ejemplo</button>
+          <button id="btn-vaciar" type="button" class="peligro">Vaciar todo</button>
+        </div>
+      </article>
+    </section>
+
+    <!-- columna derecha: formularios y respuesta del servidor -->
+    <section class="columna">
+      <article class="tarjeta">
+        <h2>Registrar movimiento</h2>
+        <!-- los formularios no recargan la pagina: lo maneja el javascript -->
+        <form id="form-movimiento">
+          <label>Producto
+            <select id="mov-codigo" required></select>
+          </label>
+          <label>Tipo
+            <select id="mov-tipo">
+              <option value="entrada">entrada</option>
+              <option value="salida">salida</option>
+            </select>
+          </label>
+          <label>Cantidad
+            <input id="mov-cantidad" type="number" value="1">
+          </label>
+          <label>Motivo
+            <input id="mov-motivo" type="text" placeholder="opcional">
+          </label>
+          <button type="submit">Enviar movimiento</button>
+        </form>
+      </article>
+
+      <article class="tarjeta">
+        <h2>Nuevo producto</h2>
+        <form id="form-producto">
+          <label>Codigo
+            <input id="prod-codigo" type="text" placeholder="REP-100">
+          </label>
+          <label>Nombre
+            <input id="prod-nombre" type="text" placeholder="Amortiguador delantero">
+          </label>
+          <label>Stock
+            <input id="prod-stock" type="number" value="0">
+          </label>
+          <label>Stock minimo
+            <input id="prod-minimo" type="number" value="1">
+          </label>
+          <button type="submit">Crear producto</button>
+        </form>
+      </article>
+
+      <article class="tarjeta">
+        <h2>Procesar un lote (json)</h2>
+        <!-- el selector carga el archivo en el cuadro de texto para poder revisarlo antes de enviar -->
+        <label class="archivo">Cargar un archivo .json
+          <input id="lote-archivo" type="file" accept=".json,application/json">
+        </label>
+        <span id="lote-archivo-nombre" class="ayuda">o escribe el json directamente</span>
+        <!-- el texto se envia tal cual: se puede romper a proposito para ver el error 400 -->
+        <textarea id="lote-json" rows="9" spellcheck="false"></textarea>
+        <button id="btn-lote" type="button">Enviar lote</button>
+      </article>
+
+      <article class="tarjeta">
+        <h2>Respuesta del servidor</h2>
+        <!-- aqui se muestra siempre la ultima peticion y su codigo de estado -->
+        <div id="estado-http" class="estado">sin peticiones todavia</div>
+        <pre id="cuerpo-http"></pre>
+      </article>
+    </section>
+  </main>
+
+  <!-- el javascript va al final para que el html ya exista cuando se ejecute -->
+  <script src="app.js"></script>
+</body>
+</html>

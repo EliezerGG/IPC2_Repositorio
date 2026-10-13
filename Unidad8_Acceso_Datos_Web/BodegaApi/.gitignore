@@ -1,0 +1,6 @@
+bin/
+obj/
+bodega.db
+bodega.db-journal
+.vs/
+.idea/
