@@ -1,0 +1,7 @@
+@* deja usar las clases del proyecto sin escribir el namespace completo *@
+@using EjemploRazorPages
+@using EjemploRazorPages.Models
+@* fija el namespace base; cada pagina le suma su carpeta *@
+@namespace EjemploRazorPages.Pages
+@* activa los tag helpers (asp-page-handler, asp-route-id, etc.) *@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers

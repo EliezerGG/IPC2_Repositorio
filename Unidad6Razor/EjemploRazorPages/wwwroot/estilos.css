@@ -1,0 +1,188 @@
+/* :root guarda las variables de color */
+:root {
+    /* --color-principal: el azul del curso */
+    --color-principal: #2E86C1;
+    /* --color-oscuro: un azul mas oscuro */
+    --color-oscuro: #1B4F72;
+    /* --color-fondo: un azul muy claro para el fondo */
+    --color-fondo: #EAF3FB;
+}
+
+/* selector universal: aplica a todos los elementos */
+* {
+    /* quita margenes por defecto */
+    margin: 0;
+    /* quita relleno por defecto */
+    padding: 0;
+    /* incluye borde y relleno dentro del ancho */
+    box-sizing: border-box;
+}
+
+/* body: estilos generales */
+body {
+    /* tipo de letra */
+    font-family: Arial, sans-serif;
+    /* color del texto */
+    color: var(--color-oscuro);
+    /* color de fondo */
+    background-color: var(--color-fondo);
+}
+
+/* .cabecera: la cabecera del layout */
+.cabecera {
+    /* fondo con el color principal */
+    background-color: var(--color-principal);
+    /* texto en blanco */
+    color: white;
+    /* espacio interno */
+    padding: 20px;
+    /* centra el texto */
+    text-align: center;
+}
+
+/* main: contenedor centrado y angosto */
+main {
+    /* ancho maximo */
+    max-width: 560px;
+    /* centra el bloque de forma horizontal */
+    margin: 20px auto;
+    /* espacio a los lados */
+    padding: 0 20px;
+}
+
+/* .agregar: la fila con los campos y el boton */
+.agregar {
+    /* acomoda los elementos en fila */
+    display: flex;
+    /* separacion entre los elementos */
+    gap: 8px;
+    /* separacion abajo */
+    margin-bottom: 6px;
+}
+
+/* input: los campos de texto */
+input {
+    /* ocupa el espacio disponible */
+    flex: 1;
+    /* espacio interno */
+    padding: 9px;
+    /* borde gris */
+    border: 1px solid #cccccc;
+    /* esquinas redondeadas */
+    border-radius: 4px;
+}
+
+/* button: los botones en general */
+button {
+    /* fondo con el color principal */
+    background-color: var(--color-principal);
+    /* texto en blanco */
+    color: white;
+    /* sin borde */
+    border: none;
+    /* espacio interno */
+    padding: 9px 14px;
+    /* esquinas redondeadas */
+    border-radius: 4px;
+    /* mano al pasar el mouse */
+    cursor: pointer;
+}
+
+/* ul: la lista de libros */
+ul {
+    /* quita los puntos de la lista */
+    list-style: none;
+    /* separacion arriba */
+    margin-top: 14px;
+}
+
+/* li: cada libro */
+li {
+    /* acomoda el contenido en fila */
+    display: flex;
+    /* centra verticalmente */
+    align-items: center;
+    /* separacion entre los elementos */
+    gap: 10px;
+    /* fondo blanco */
+    background-color: white;
+    /* espacio interno */
+    padding: 10px 12px;
+    /* separacion entre libros */
+    margin-bottom: 8px;
+    /* esquinas redondeadas */
+    border-radius: 4px;
+}
+
+/* .libro: el texto del libro (titulo y autor) */
+.libro {
+    /* ocupa el espacio disponible y empuja lo demas a la derecha */
+    flex: 1;
+}
+
+/* .libro strong: el titulo en negrita */
+.libro strong {
+    /* color oscuro */
+    color: var(--color-oscuro);
+}
+
+/* .en-linea: los formularios no rompen la fila del li */
+.en-linea {
+    /* se mantienen en linea */
+    display: inline-flex;
+}
+
+/* .tag: el boton de estado con forma de etiqueta */
+.tag {
+    /* letra pequena y en negrita */
+    font-size: 11px;
+    font-weight: bold;
+    /* espacio interno */
+    padding: 4px 10px;
+    /* forma de pastilla */
+    border-radius: 10px;
+}
+
+/* .disp: estado disponible (verde) */
+.disp {
+    /* fondo verde */
+    background-color: #1E8449;
+}
+
+/* .prest: estado prestado (gris) */
+.prest {
+    /* fondo gris */
+    background-color: #99A3AA;
+}
+
+/* .x: el boton de eliminar */
+.x {
+    /* fondo rojo */
+    background-color: #C0392B;
+    /* letra pequena */
+    font-size: 12px;
+    /* espacio interno mas chico */
+    padding: 4px 9px;
+}
+
+/* .ayuda: texto de ayuda cuando no hay libros */
+.ayuda {
+    /* color gris */
+    color: #777777;
+    /* centra el texto */
+    text-align: center;
+    /* separacion arriba */
+    margin-top: 10px;
+}
+
+/* .pie: el pie de pagina del layout */
+.pie {
+    /* fondo oscuro */
+    background-color: var(--color-oscuro);
+    /* texto blanco */
+    color: white;
+    /* centra el texto */
+    text-align: center;
+    /* espacio interno */
+    padding: 14px;
+}

@@ -1,0 +1,44 @@
+@* @page convierte esta vista en una pagina que responde a una url *@
+@page
+@* @model indica cual es el pagemodel que acompana a esta pagina *@
+@model IndexModel
+@{
+    ViewData["Title"] = "Catalogo de Libros";
+}
+
+@* formulario para agregar un libro: hace post al handler de agregar *@
+<form method="post" class="agregar">
+    @* el name de cada input coincide con una propiedad enlazada *@
+    <input name="Titulo" placeholder="Titulo" />
+    <input name="Autor" placeholder="Autor" />
+    <button type="submit">Agregar</button>
+</form>
+
+<ul>
+    @* recorre cada libro de la lista del pagemodel *@
+    @foreach (var libro in Model.Libros)
+    {
+        <li>
+            @* muestra el titulo y el autor con expresiones @ *@
+            <span class="libro"><strong>@libro.Titulo</strong> &mdash; @libro.Autor</span>
+
+            @* handler con nombre: alterna disponible/prestado; pasa el id por la ruta *@
+            <form method="post" asp-page-handler="Alternar" asp-route-id="@libro.Id" class="en-linea">
+                <button type="submit" class="tag @(libro.Disponible ? "disp" : "prest")">
+                    @(libro.Disponible ? "Disponible" : "Prestado")
+                </button>
+            </form>
+
+            @* handler con nombre: elimina el libro *@
+            <form method="post" asp-page-handler="Eliminar" asp-route-id="@libro.Id" class="en-linea">
+                <button type="submit" class="x">x</button>
+            </form>
+        </li>
+    }
+</ul>
+
+@* si no hay libros, muestra un mensaje *@
+@if (Model.Libros.Count == 0)
+{
+    <p class="ayuda">No hay libros en el catalogo.</p>
+}

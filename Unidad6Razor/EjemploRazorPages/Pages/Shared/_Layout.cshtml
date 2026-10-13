@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- doctype: indica que es html5 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @* el titulo cambia segun cada pagina *@
+    <title>@ViewData["Title"]</title>
+    @* enlaza el css desde wwwroot usando ~/ *@
+    <link rel="stylesheet" href="~/estilos.css" />
+</head>
+<body>
+    <!-- esta cabecera se repite en todas las paginas -->
+    <header class="cabecera">
+        <h1>Catalogo de Libros</h1>
+        <p>Razor Pages (ASP.NET Core)</p>
+    </header>
+
+    <main>
+        @* aqui razor inserta el contenido de cada pagina *@
+        @RenderBody()
+    </main>
+
+    <!-- este pie tambien se repite siempre -->
+    <footer class="pie">
+        <p>IPC2 - Escuela de Ciencias y Sistemas</p>
+    </footer>
+</body>
+</html>
